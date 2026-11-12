@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surendra | Utilities / Radio - Digital Marketing & Web Agency</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans for modern agency aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            950: '#020617',
+                        },
+                        indigo: {
+                            550: '#4f46e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand / Logo -->
+                <a href="#" onclick="navigateTo('home')" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-bolt text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading text-lg font-bold tracking-wide text-white block leading-none">Utilities / Radio</span>
+                        <span class="text-[11px] uppercase tracking-widest text-indigo-400 font-semibold">Led by Surendra</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-7">
+                    <button onclick="navigateTo('home')" class="nav-link text-sm font-medium text-indigo-400 transition-colors" data-page="home">Home</button>
+                    <button onclick="navigateTo('about')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-page="about">About</button>
+                    <a href="#services" onclick="navigateTo('home')" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Services</a>
+                    <a href="#verification" onclick="navigateTo('home')" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Verification</a>
+                    <button onclick="navigateTo('contact')" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors" data-page="contact">Contact</button>
+                </nav>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="mailto:surendra@thehorizonprojects.info" class="text-sm font-medium text-slate-300 hover:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-indigo-400 text-xs"></i>
+                        surendra@thehorizonprojects.info
+                    </a>
+                    <button onclick="navigateTo('contact')" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/20">
+                        Get Proposal
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/70 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <button onclick="navigateTo('home')" class="w-full text-left block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-indigo-400">Home</button>
+            <button onclick="navigateTo('about')" class="w-full text-left block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-indigo-400">About Surendra</button>
+            <a href="#services" onclick="navigateTo('home')" class="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-indigo-400">Digital Services</a>
+            <a href="#verification" onclick="navigateTo('home')" class="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-indigo-400">Business Verification</a>
+            <button onclick="navigateTo('contact')" class="w-full text-left block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-indigo-400">Contact & Address</button>
+            <div class="pt-3 border-t border-slate-800 flex flex-col gap-3">
+                <a href="mailto:surendra@thehorizonprojects.info" class="w-full py-3 rounded-xl bg-slate-800 text-center text-slate-200 font-medium flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope text-indigo-400"></i> Email Us
+                </a>
+                <button onclick="navigateTo('contact')" class="w-full py-3 rounded-xl bg-indigo-600 text-white text-center font-bold shadow-lg">
+                    Book Consultation
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN HOME VIEW -->
+    <main id="page-home" class="page-view">
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+            <!-- Glow Background -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-indigo-600/15 blur-[130px] rounded-full pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Text Column -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs sm:text-sm font-medium mb-6">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                            Utilities / Radio • Ghaziabad, UP 201001
+                        </div>
+
+                        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                            Scale Your Brand With Expert <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-600">Digital Marketing</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                            Hello, I'm <strong class="text-white font-semibold">Surendra</strong>. Operating under <strong class="text-indigo-300">Utilities / Radio</strong> from Sewa Nagar, Ghaziabad, I deliver high-converting Google Ads, Meta Ads, Social Media Optimization (SMO), and professional Website Making services.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                            <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base transition-all shadow-xl shadow-indigo-600/20 flex items-center justify-center gap-2">
+                                <span>Explore Our Services</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </a>
+                            <a href="mailto:surendra@thehorizonprojects.info" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-base transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-envelope text-indigo-400"></i>
+                                <span>Email Surendra</span>
+                            </a>
+                        </div>
+
+                        <!-- Quick Key Highlights -->
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <p class="text-xl sm:text-2xl font-bold text-white">Google & Meta</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Paid Ads Expert</p>
+                            </div>
+                            <div>
+                                <p class="text-xl sm:text-2xl font-bold text-indigo-400">Website</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Design & Dev</p>
+                            </div>
+                            <div>
+                                <p class="text-xl sm:text-2xl font-bold text-white">Ghaziabad</p>
+                                <p class="text-xs text-slate-400 mt-0.5">UP 201001</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Card Column -->
+                    <div class="lg:col-span-5">
+                        <div class="relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl p-8 group">
+                            <div class="absolute top-0 right-0 -mt-8 -mr-8 w-40 h-40 bg-indigo-600/20 rounded-full blur-2xl"></div>
+                            
+                            <div class="relative z-10 space-y-6">
+                                <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                                    <div>
+                                        <span class="text-xs uppercase tracking-widest text-indigo-400 font-semibold">Business Profile</span>
+                                        <h3 class="text-xl font-bold text-white mt-1">Utilities / Radio</h3>
+                                    </div>
+                                    <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400">
+                                        <i class="fa-solid fa-chart-line text-xl"></i>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-slate-300">
+                                    <div class="flex items-start gap-3">
+                                        <i class="fa-solid fa-user text-indigo-400 mt-1"></i>
+                                        <div>
+                                            <p class="text-xs text-slate-400">Proprietor / Lead</p>
+                                            <p class="font-semibold text-white">Surendra</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <i class="fa-solid fa-location-dot text-indigo-400 mt-1"></i>
+                                        <div>
+                                            <p class="text-xs text-slate-400">Office Address</p>
+                                            <p class="font-semibold text-white">C/O Ramvriksha, House No 516, Gali No 5 Sewa Nagar, Sewa Nagar, Ghaziabad, Uttar Pradesh 201001</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <i class="fa-solid fa-envelope text-indigo-400 mt-1"></i>
+                                        <div>
+                                            <p class="text-xs text-slate-400">Official Email</p>
+                                            <a href="mailto:surendra@thehorizonprojects.info" class="font-semibold text-indigo-400 hover:underline">surendra@thehorizonprojects.info</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                                    <span class="text-slate-400">Verified Credentials</span>
+                                    <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-check"></i> PAN & Aadhaar Verified
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Digital Services Section -->
+        <section id="services" class="py-20 bg-slate-900/50 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">What We Do</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Comprehensive Digital Marketing & Web Solutions</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Empowering businesses with high ROI advertising, social media optimization, and robust web development under Utilities / Radio.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-600/15 text-indigo-400 flex items-center justify-center mb-5 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-google"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Google Ads</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Targeted Search, Display, and Performance Max campaigns designed to capture high-intent customers and drive immediate ROI.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs font-semibold text-indigo-400">
+                            PPC & Keyword Optimization
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-600/15 text-indigo-400 flex items-center justify-center mb-5 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-meta"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Meta Ads</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Engaging Facebook & Instagram ad creatives, custom audience targeting, and retargeting funnels to convert social traffic into loyal buyers.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs font-semibold text-indigo-400">
+                            FB & IG Lead Generation
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-600/15 text-indigo-400 flex items-center justify-center mb-5 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Social Media Optimization (SMO)</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Organic social growth, content strategy, brand consistency, and community engagement across all major platforms.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs font-semibold text-indigo-400">
+                            Brand Authority & Reach
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-600/15 text-indigo-400 flex items-center justify-center mb-5 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Website Making</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                Custom, responsive, high-speed business websites, e-commerce stores, and landing pages built to convert visitors into clients.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 text-xs font-semibold text-indigo-400">
+                            UI/UX & Mobile Friendly
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business & Tax Verification Section -->
+        <section id="verification" class="py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Official Credentials</span>
+                            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white mt-1">Utilities / Radio Verification Details</h2>
+                        </div>
+                        <div class="px-4 py-2 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved"></i> 100% Transparent Entity
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+                        <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                            <p class="text-xs text-slate-400 mb-1">Proprietor Name</p>
+                            <p class="text-lg font-bold text-white">Surendra</p>
+                            <p class="text-[11px] text-indigo-400 mt-1">Utilities / Radio</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                            <p class="text-xs text-slate-400 mb-1">PAN Number</p>
+                            <p class="text-lg font-bold text-white font-mono tracking-wider">HYAPS7260H</p>
+                            <p class="text-[11px] text-emerald-400 mt-1"><i class="fa-solid fa-check-circle"></i> Income Tax Registered</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                            <p class="text-xs text-slate-400 mb-1">Aadhaar Number</p>
+                            <p class="text-lg font-bold text-white font-mono tracking-wider">3002 4533 7094</p>
+                            <p class="text-[11px] text-emerald-400 mt-1"><i class="fa-solid fa-check-circle"></i> Government ID Verified</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 rounded-2xl bg-indigo-600/10 border border-indigo-500/30 flex items-center gap-3.5">
+                        <i class="fa-solid fa-location-dot text-indigo-400 text-lg shrink-0"></i>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <strong class="text-white">Registered Address:</strong> C/O Ramvriksha, House No 516, Gali No 5 Sewa Nagar, Sewa Nagar, Ghaziabad, Uttar Pradesh 201001, United States / India.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Lead Form Section -->
+        <section id="contact" class="py-20 bg-slate-900/50 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left Info -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Get In Touch</span>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4">Let's Grow Your Business Together</h2>
+                            <p class="text-slate-300 text-base leading-relaxed">
+                                Ready to scale with Google Ads, Meta Ads, SMO, or a brand new website? Reach out to Surendra directly.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Email -->
+                            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-envelope text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400">Official Email</p>
+                                        <a href="mailto:surendra@thehorizonprojects.info" class="text-sm sm:text-base font-bold text-white hover:text-indigo-400 transition-colors">
+                                            surendra@thehorizonprojects.info
+                                        </a>
+                                    </div>
+                                </div>
+                                <button onclick="copyEmail()" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium transition-colors" title="Copy Email">
+                                    <i class="fa-regular fa-copy"></i> Copy
+                                </button>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-map-pin text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Ghaziabad Office</p>
+                                    <p class="text-sm font-bold text-white mt-0.5">Utilities / Radio (Surendra)</p>
+                                    <p class="text-xs text-slate-300 mt-1 leading-relaxed">C/O Ramvriksha, House No 516, Gali No 5 Sewa Nagar, Sewa Nagar<br>Ghaziabad, Uttar Pradesh 201001</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Form -->
+                    <div class="lg:col-span-7">
+                        <div class="p-6 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl">
+                            <h3 class="text-2xl font-bold text-white mb-2">Request a Marketing Proposal</h3>
+                            <p class="text-slate-400 text-sm mb-6">Fill out the details below and Surendra will get back to you promptly.</p>
+
+                            <form id="contact-form" class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Your Name *</label>
+                                        <input type="text" id="client-name" required placeholder="e.g., Rajesh Sharma" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Email Address *</label>
+                                        <input type="email" id="client-email" required placeholder="rajesh@yourbusiness.com" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Phone Number *</label>
+                                        <input type="tel" id="client-phone" required placeholder="+91 98765 43210" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Primary Service Needed *</label>
+                                        <select id="service-select" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-indigo-500 transition-colors">
+                                            <option value="Google Ads">Google Ads Campaign</option>
+                                            <option value="Meta Ads">Meta (FB/IG) Ads</option>
+                                            <option value="SMO">Social Media Optimization (SMO)</option>
+                                            <option value="Website Making">Website Making / Development</option>
+                                            <option value="All Services Package">Full Digital Marketing Package</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Project Details & Goals *</label>
+                                    <textarea id="project-details" rows="4" required placeholder="Tell us about your business, target audience, and marketing goals..." class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base transition-all shadow-lg shadow-indigo-600/20 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Send Proposal Inquiry</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- DEDICATED ABOUT PAGE VIEW -->
+    <section id="page-about" class="page-view hidden pt-32 pb-24 min-h-screen">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 font-medium mb-6">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Home
+                </button>
+                <span class="block text-xs font-bold uppercase tracking-widest text-indigo-400">About the Proprietor</span>
+                <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-2 mb-6">About Surendra & Utilities / Radio</h1>
+                <p class="text-lg text-slate-300 leading-relaxed">
+                    Based in Sewa Nagar, Ghaziabad, Uttar Pradesh, I operate under the banner of <strong class="text-white">Utilities / Radio</strong>, providing comprehensive digital marketing solutions that bridge the gap between businesses and their target customers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
+                <div class="lg:col-span-5">
+                    <div class="rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 p-8 shadow-xl space-y-6">
+                        <div class="w-16 h-16 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">Surendra</h2>
+                            <p class="text-xs text-indigo-400 font-semibold mt-0.5">Proprietor: Utilities / Radio</p>
+                        </div>
+                        <div class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                            <p><strong class="text-white">Email:</strong> <a href="mailto:surendra@thehorizonprojects.info" class="text-indigo-400 hover:underline">surendra@thehorizonprojects.info</a></p>
+                            <p><strong class="text-white">Location:</strong> Ghaziabad, UP 201001</p>
+                            <p><strong class="text-white">PAN:</strong> HYAPS7260H</p>
+                            <p><strong class="text-white">Aadhaar:</strong> 3002 4533 7094</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed">
+                    <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
+                        <h3 class="text-xl font-bold text-white">Our Mission & Approach</h3>
+                        <p class="text-sm sm:text-base">
+                            In today's digital economy, having a strong online presence is paramount. Under Utilities / Radio, my focus is on delivering transparent, high-performing digital marketing campaigns across Google and Meta platforms, alongside crafting lightning-fast, conversion-optimized websites.
+                        </p>
+                        <p class="text-sm sm:text-base">
+                            Every client receives personalized attention, data-driven optimization, and absolute clarity on ad spend and campaign results.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-bullseye text-indigo-400 text-xl mb-3"></i>
+                            <h4 class="font-bold text-white mb-1">Targeted Advertising</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Precise audience segmentation on Google and Meta for maximum lead conversion.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <i class="fa-solid fa-laptop-code text-indigo-400 text-xl mb-3"></i>
+                            <h4 class="font-bold text-white mb-1">Modern Web Development</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Sleek, mobile-friendly websites designed to impress and convert your visitors.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button onclick="navigateTo('contact')" class="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition-all shadow-lg">
+                            Work With Surendra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEDICATED CONTACT PAGE VIEW -->
+    <section id="page-contact" class="page-view hidden pt-32 pb-24 min-h-screen">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 font-medium mb-6">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            <span class="block text-xs font-bold uppercase tracking-widest text-indigo-400">Reach Out</span>
+            <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-2 mb-4">Contact Utilities / Radio</h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mb-12">
+                Get in touch with <strong class="text-white">Surendra</strong> for Google Ads, Meta Ads, SMO, or Website Making inquiries.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Address Card -->
+                <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Office Address</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Utilities / Radio (Surendra)<br>
+                        C/O Ramvriksha, House No 516<br>
+                        Gali No 5 Sewa Nagar, Sewa Nagar<br>
+                        Ghaziabad, Uttar Pradesh 201001
+                    </p>
+                </div>
+
+                <!-- Email Card -->
+                <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mb-4 text-xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Official Email</h3>
+                        <a href="mailto:surendra@thehorizonprojects.info" class="text-sm font-bold text-indigo-400 hover:underline block mb-1">
+                            surendra@thehorizonprojects.info
+                        </a>
+                        <p class="text-xs text-slate-400">Fast response within 24 hours</p>
+                    </div>
+                    <button onclick="copyEmail()" class="mt-4 w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white transition-colors">
+                        <i class="fa-regular fa-copy mr-1"></i> Copy Email
+                    </button>
+                </div>
+
+                <!-- Verification Card -->
+                <div class="p-7 rounded-3xl bg-slate-900 border border-slate-800">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mb-4 text-xl">
+                        <i class="fa-solid fa-shield-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Tax & ID Details</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        <strong class="text-white">PAN:</strong> HYAPS7260H<br>
+                        <strong class="text-white">Aadhaar:</strong> 3002 4533 7094<br>
+                        <span class="text-xs text-emerald-400 block mt-2"><i class="fa-solid fa-circle-check"></i> Verified Entity</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEDICATED PRIVACY POLICY PAGE VIEW -->
+    <section id="page-privacy" class="page-view hidden pt-32 pb-24 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 font-medium mb-6">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            <span class="block text-xs font-bold uppercase tracking-widest text-indigo-400">Legal</span>
+            <h1 class="font-heading text-4xl font-extrabold text-white mt-2 mb-2">Privacy Policy</h1>
+            <p class="text-xs text-slate-400 mb-8">Last Updated: November 2026 • Utilities / Radio (Ghaziabad, UP)</p>
+
+            <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">1. Information Collection</h2>
+                    <p>
+                        When you contact Utilities / Radio or Surendra via our proposal form or official email (<a href="mailto:surendra@thehorizonprojects.info" class="text-indigo-400">surendra@thehorizonprojects.info</a>), we collect information necessary to fulfill your digital marketing and website requests, including your name, email, phone number, and project details.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">2. Use of Information</h2>
+                    <p>Your details are used strictly to communicate regarding Google Ads, Meta Ads, SMO, website making, and related agency services, as well as to maintain accurate business records in accordance with Indian tax laws (PAN: HYAPS7260H).</p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">3. Data Security</h2>
+                    <p>We maintain strict confidentiality and never sell or rent your personal information to third parties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEDICATED TERMS OF SERVICE PAGE VIEW -->
+    <section id="page-terms" class="page-view hidden pt-32 pb-24 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 font-medium mb-6">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            <span class="block text-xs font-bold uppercase tracking-widest text-indigo-400">Legal Guidelines</span>
+            <h1 class="font-heading text-4xl font-extrabold text-white mt-2 mb-2">Terms of Service</h1>
+            <p class="text-xs text-slate-400 mb-8">Effective Date: November 2026 • Utilities / Radio</p>
+
+            <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">1. Services Provided</h2>
+                    <p>
+                        Utilities / Radio, led by Surendra (Ghaziabad, UP 201001), provides digital marketing services including Google Ads, Meta Ads, Social Media Optimization (SMO), and Website Making.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">2. Payments & Ad Spend</h2>
+                    <p>
+                        Clients are responsible for direct ad platform spend (Google/Meta) in addition to agency management fees agreed upon prior to project commencement.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">3. Business Identity</h2>
+                    <p>
+                        <strong class="text-white">Proprietor:</strong> Surendra<br>
+                        <strong class="text-white">Business:</strong> Utilities / Radio<br>
+                        <strong class="text-white">Address:</strong> C/O Ramvriksha, House No 516, Gali No 5 Sewa Nagar, Sewa Nagar, Ghaziabad, Uttar Pradesh 201001<br>
+                        <strong class="text-white">PAN:</strong> HYAPS7260H | <strong class="text-white">Aadhaar:</strong> 3002 4533 7094
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-900">
+                <div class="text-center md:text-left">
+                    <span class="font-heading text-lg font-bold text-white block">Utilities / Radio</span>
+                    <p class="text-xs text-slate-400 mt-1">
+                        Led by Surendra • Ghaziabad, UP 201001 • <a href="mailto:surendra@thehorizonprojects.info" class="text-indigo-400 hover:underline">surendra@thehorizonprojects.info</a>
+                    </p>
+                </div>
+
+                <!-- Footer Page Links -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-slate-400">
+                    <button onclick="navigateTo('home')" class="hover:text-indigo-400 transition-colors">Home</button>
+                    <button onclick="navigateTo('about')" class="hover:text-indigo-400 transition-colors">About</button>
+                    <button onclick="navigateTo('contact')" class="hover:text-indigo-400 transition-colors">Contact</button>
+                    <button onclick="navigateTo('privacy')" class="hover:text-indigo-400 transition-colors">Privacy Policy</button>
+                    <button onclick="navigateTo('terms')" class="hover:text-indigo-400 transition-colors">Terms of Service</button>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
+                <p>Google Ads, Meta Ads, SMO & Website Making Services in Ghaziabad, UP</p>
+                <p>&copy; <span id="current-year"></span> Utilities / Radio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Notification Modal (Replaces alert) -->
+    <div id="notification-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+        <div class="max-w-md w-full p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl text-center transform transition-all">
+            <div id="modal-icon-container" class="w-14 h-14 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i id="modal-icon" class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-white mb-2">Proposal Inquiry Sent!</h3>
+            <p id="modal-message" class="text-sm text-slate-300 leading-relaxed mb-6">
+                Thank you! Surendra will review your requirements and reach out to you shortly via surendra@thehorizonprojects.info.
+            </p>
+            <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition-colors">
+                Got It
+            </button>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Single-Page Multi-View Navigation Router
+        function navigateTo(pageName) {
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => view.classList.add('hidden'));
+
+            const targetView = document.getElementById(`page-${pageName}`);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+            }
+
+            // Update active state on desktop nav buttons
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                if (btn.dataset.page === pageName) {
+                    btn.classList.remove('text-slate-300');
+                    btn.classList.add('text-indigo-400');
+                } else {
+                    btn.classList.remove('text-indigo-400');
+                    btn.classList.add('text-slate-300');
+                }
+            });
+
+            // Close mobile menu if open
+            const mobileMenuEl = document.getElementById('mobile-menu');
+            if (mobileMenuEl && !mobileMenuEl.classList.contains('hidden')) {
+                mobileMenuEl.classList.add('hidden');
+            }
+
+            // Smooth scroll to top when switching views
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email function using fallback execCommand
+        function copyEmail() {
+            const emailText = 'surendra@thehorizonprojects.info';
+            const tempInput = document.createElement('textarea');
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showModal(
+                    'Email Copied',
+                    'Surendra\'s email (surendra@thehorizonprojects.info) has been copied to your clipboard.',
+                    'fa-copy',
+                    false
+                );
+            } catch (err) {
+                showModal(
+                    'Official Email',
+                    'Contact Surendra at surendra@thehorizonprojects.info.',
+                    'fa-envelope',
+                    false
+                );
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Custom Modal Helpers
+        const modal = document.getElementById('notification-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalIconContainer = document.getElementById('modal-icon-container');
+
+        function showModal(title, message, iconClass = 'fa-check') {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modalIcon.className = `fa-solid ${iconClass}`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Contact Form Submission Handler
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('client-name').value.trim();
+                const service = document.getElementById('service-select').value;
+
+                showModal(
+                    'Proposal Inquiry Submitted!',
+                    `Thank you, ${name}! Your request regarding ${service} has been received. Surendra will review your details and contact you at surendra@thehorizonprojects.info.`,
+                    'fa-paper-plane'
+                );
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
